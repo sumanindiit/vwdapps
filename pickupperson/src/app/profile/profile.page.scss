@@ -1,0 +1,195 @@
+ion-header {
+   position:absolute;
+	&:after {
+		display: none;
+	}
+	ion-toolbar {
+		--border-width: 0px;
+		--background: transparent!important;
+		--ion-color-base: transparent!important;
+		ion-title {
+			font-size: 18px;
+			color: var(--ion-color-white);
+			font-family: var(--ion-headfamily);
+		}
+			ion-back-button {
+			--icon-font-size: 20px;
+			color: var(--ion-color-white);
+		}
+	}
+  &.show-background
+  {
+		ion-toolbar
+		{
+	   --background:var(--ion-color-primarygradient)!important;
+	  --ion-color-base:var(--ion-color-primarygradient)!important;
+	  }
+  }
+}
+ion-content
+{
+[profileimg]
+  {
+    background:url(../../assets/img/bg1.jpg);
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-position:center;
+	height:220px;
+	width:100%;
+	-webkit-clip-path: polygon(0% 0%, 100% 0, 100% 77%, 0 100%);
+	clip-path: polygon(0% 0%, 100% 0, 100% 77%, 0 100%);
+	display: flex;
+    align-items: center;
+    justify-content: center;
+	position:relative;
+	&:after
+	{
+	  content:'';
+	  position:absolute;
+	  top:0px;
+	  left:0px;
+	  right:0px;
+	  bottom:0px;
+	  background:rgba(0,0,0,0.60);
+	}
+  }
+  [profileinfo]
+  {padding: 0px 16px 16px;
+    [userinfo]
+	{  text-align:center;
+	   margin-bottom: 20px;
+	   ion-avatar {
+				width: 109px;
+				height: 109px;
+				border: 1px solid var(--ion-color-white);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				margin: 0 auto;
+				box-shadow: 0px 0px 10px rgba(0, 0, 0, .07);
+				margin-top: -70px;
+				position: relative;
+				span {
+					width: 96px;
+					height: 96px;
+					background: var(--ion-color-white);
+					font-size: 29px;
+					font-weight: 600;
+					color: var(--ion-color-black);
+					display: flex;
+					align-items: center; 
+					justify-content: center;
+					border-radius:50%;
+				}
+			}
+			
+				h2 {
+					color: var(--ion-color-black);
+					font-size: 14px;
+					font-weight: 700;
+					margin-bottom: 5px;
+				}
+			
+	}
+  	ion-segment {
+			margin-bottom: 20px;
+			padding: 7px;
+			background: var(--ion-color-white);
+			box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.10);
+			ion-segment-button {
+				min-height: 45px;
+				height: 45px;
+				--indicator-height: 0px;
+				--indicator-color: transparent;
+				--indicator-color-checked: transparent;
+				color: var(--ion-color-black);
+				--color-checked: var(--ion-color-black);
+				--color: var(--ion-color-black);
+				text-transform: capitalize;
+				font-size: 14px;
+				font-weight: 500;
+				--background: var(--ion-color-white);
+                --background-hover: var(--ion-color-white);
+				&.segment-button-checked {
+					color: var(--ion-color-white);
+					--color-checked: var(--ion-color-white);
+					--color: var(--ion-color-white);
+					--background-hover: transparent;
+					--background: var(--ion-color-secondary);
+					background: var(--ion-color-secondary);
+					font-size: 14px;
+					font-weight: 500;
+				}
+			}
+		}
+		ion-list
+		{
+		margin: 0;
+		padding: 0;
+		background: transparent;
+		[btn-submit]
+		   {
+			   --box-shadow: none;
+				min-height: 54px;
+				color: var(--ion-color-white);
+				font-size: 14px;
+				font-weight: 600;
+				transform: skew(18deg);
+				width: calc(100% - 20px);
+				margin: 0 auto;
+				span
+				{
+				 transform: skew(-18deg);
+				}
+			}
+		[form-group]
+		{    
+			margin-bottom: 20px;
+			
+		ion-item
+		    {
+				--padding-start: 18px;
+				--min-height: 55px;
+				--background: var(--ion-color-grey);
+			ion-label
+				{
+				 align-items: center;
+                 display: flex;
+				 //max-width: 20px;
+                 //min-width: 20px;
+				img
+				{
+					height: 20px;
+					width: 20px;
+					min-width: 20px;
+					object-fit: contain;
+				}
+				}
+				ion-input
+				{
+				    font-size: 14px;
+					color: #43444f;
+					font-weight: 600;
+					 --placeholder-font-weight: 500;
+					 --placeholder-opacity: 1;
+				}
+				ion-select
+				{
+					    font-size: 14px;
+						color: #43444f;
+						font-weight: 600;
+						--placeholder-opacity: 1;
+						max-width: 100%;
+                        width: 100%;
+						padding-left:10px;
+						&::part(placeholder)
+						{
+						font-weight: 500;
+						}
+				}
+			}	
+		}
+		
+		}
+  }
+}

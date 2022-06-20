@@ -1,0 +1,83 @@
+<ion-header mode="md"> 
+  <ion-toolbar class="primary">
+    <ion-title class="ion-text-center">Complaints</ion-title>
+	<ion-buttons (click)="toggleClass()" slot="end">
+	  <ion-icon name="search-outline"></ion-icon>
+	</ion-buttons>
+  </ion-toolbar>
+  <div  *ngIf="hideMe" search>
+    <ion-searchbar [(ngModel)]="searchQuery" (search)="filterComplaints($event)" autocorrect="off" showCancelButton="focus" mode="md" placeholder="Search Complaints..." ></ion-searchbar>
+  </div>
+</ion-header>
+<ion-content>
+<div complaintsmain  class="ion-padding">
+  <div *ngIf="pageData">
+    <ion-item lines="none" *ngFor ="let data of pageData">
+      <ion-avatar>
+        <img src="{{ data.image }}"/>
+      </ion-avatar>
+      <ion-label> 
+        <h2>{{data.title}}</h2>
+        <p>{{ data.content.slice(0, 60) + (data.content.length > 60 ? '...' : '')}}</p>
+      </ion-label>
+      <ion-buttons routerLink="/complaintdetail/{{data.id}}" slot="end"><ion-icon name="eye-outline"></ion-icon></ion-buttons>
+    </ion-item>
+    
+    <ion-infinite-scroll *ngIf="isMoreRecords" threshold="100px" (ionInfinite)="getComplaints($event,'1')">
+            <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data..."></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </div>
+
+  <div *ngIf="is_loaded === true" class="alert alert-danger" role="alert" style="color: red;font-size: 17px;text-align: center;font-weight: 600;" >
+		No Compaints found!
+	</div>
+
+  <!-- Skeleton screen -->
+  <div *ngIf="!pageData">
+
+    <ion-item lines="none">
+      <ion-avatar slot="start">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-avatar>
+      
+      <ion-label> 
+        <h2><ion-skeleton-text animated style="width: 40%"></ion-skeleton-text></h2>
+        <p><ion-skeleton-text animated style="width: 80%"></ion-skeleton-text></p>
+        <p><ion-skeleton-text animated style="width: 80%"></ion-skeleton-text></p>
+      </ion-label>
+      <ion-buttons slot="end"><ion-skeleton-text animated style="width: 20%"></ion-skeleton-text></ion-buttons>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-avatar slot="start">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-avatar>
+      
+      <ion-label> 
+        <h2><ion-skeleton-text animated style="width: 40%"></ion-skeleton-text></h2>
+        <p><ion-skeleton-text animated style="width: 80%"></ion-skeleton-text></p>
+        <p><ion-skeleton-text animated style="width: 80%"></ion-skeleton-text></p>
+      </ion-label>
+       <ion-buttons slot="end"><ion-skeleton-text animated style="width: 20%"></ion-skeleton-text></ion-buttons>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-avatar slot="start">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-avatar>
+      
+      <ion-label> 
+        <h2><ion-skeleton-text animated style="width: 40%"></ion-skeleton-text></h2>
+        <p><ion-skeleton-text animated style="width: 80%"></ion-skeleton-text></p>
+        <p><ion-skeleton-text animated style="width: 80%"></ion-skeleton-text></p>
+      </ion-label>
+       <ion-buttons slot="end"><ion-skeleton-text animated style="width: 20%"></ion-skeleton-text></ion-buttons>
+    </ion-item>
+    
+  </div>
+
+</div>
+
+<ion-fab vertical="bottom" horizontal="end" slot="fixed" routerLink="/addcomplaint">
+  <ion-fab-button   size="small"><ion-icon name="add"></ion-icon></ion-fab-button>
+</ion-fab>
+
+</ion-content>

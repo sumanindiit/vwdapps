@@ -1,0 +1,40 @@
+<ion-header mode="md"> 
+  <ion-toolbar class="primary">
+ <ion-back-button slot="start" defaultHref="/tabs/complaints"  text="" icon="chevron-back-outline">
+  </ion-back-button>
+    <ion-title class="ion-text-center">Complaint Detail</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+<div complaintdetail class="ion-padding">
+
+  <div *ngIf="pageData">
+    <ion-card class="ion-no-margin">
+      <img src="{{ pageData?.image }}"/>
+      <span>{{ pageData?.status }}</span>
+    </ion-card>
+    <div complaintcontent>
+      <h2>{{ pageData?.title }}</h2>
+      <ion-note>{{ pageData?.post_date }}</ion-note>
+      <p>{{ pageData?.content }}</p>
+    </div>
+  </div>
+
+  <!-- Skeleton screen -->
+  <div *ngIf="!pageData">
+    <ion-card class="ion-no-margin">
+      <ion-skeleton-text animated  style="width: 100%;height:240px" ></ion-skeleton-text>
+      <span><ion-skeleton-text animated style="width: 40%;"  ></ion-skeleton-text></span>
+    </ion-card>
+    <div complaintcontent>
+      <h2><ion-skeleton-text animated style="width: 40%"></ion-skeleton-text></h2>
+      <ion-note><ion-skeleton-text animated style="width: 40%"></ion-skeleton-text></ion-note>
+      <p><ion-skeleton-text animated style="width: 80%"></ion-skeleton-text></p>
+      <p><ion-skeleton-text animated style="width: 80%"></ion-skeleton-text></p>
+      <p><ion-skeleton-text animated style="width: 80%"></ion-skeleton-text></p>
+      <p><ion-skeleton-text animated style="width: 80%"></ion-skeleton-text></p>
+    </div>
+  </div>
+
+</div>
+</ion-content>

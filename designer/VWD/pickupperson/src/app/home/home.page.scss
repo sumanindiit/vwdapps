@@ -1,0 +1,127 @@
+ion-header
+{
+  &:after
+  {
+  display:none;
+  }
+  ion-toolbar
+  {--border-width:0px;
+  --background:var(--ion-color-primarygradient)!important;
+  --ion-color-base:var(--ion-color-primarygradient)!important;
+  ion-title
+  { font-size: 18px;
+    color: var(--ion-color-white);
+	font-family:var(--ion-headfamily);
+  }
+  ion-buttons
+  {
+  &[slot="end"]
+  {
+    font-size: 22px;
+    color: var(--ion-color-white);
+    margin-right: 15px;
+  }
+  &[slot="start"]
+  {  margin-left: 15px;
+  	ion-toggle {
+				--handle-spacing: 3px;
+				width: 52px;
+				height: 28px;
+				--handle-width: 22px;
+				--handle-height: 22px;
+				--handle-box-shadow: none;
+				--background:var(--ion-color-white);
+				--background-checked: var(--ion-color-secondarygradient);
+				--handle-background: var(--ion-color-primary);
+				--handle-background-checked: var(--ion-color-white);
+				padding: 0;
+			}
+  }
+  }
+  }
+}
+ion-content
+{
+  [residents]
+{       padding-top: 0;
+        position:relative;
+		&:after
+		{
+		 content:'';
+		 position:absolute;
+		 background:var(--ion-color-primarygradient);
+		 height:70px;
+		 width: 100%;
+		 top:0;
+		 left:0;
+		 right:0;
+		}
+		ion-item
+		{
+		--padding-start:20px;
+		--padding-end: 20px;
+		--padding-top: 15px;
+		--padding-bottom: 15px;
+		--inner-padding-end:0px;
+		box-shadow:0px 0px 10px rgba(0,0,0,0.07);
+		margin-bottom:20px;
+		&:last-child
+		{
+		 margin:0px;
+		}
+		  ion-label
+		  { margin:0px;
+		   white-space:normal;
+		    h2
+			{
+			  font-size:13px;
+			  color:var(--ion-color-black);
+			  font-weight:700;
+			  margin:0 0 10px;
+			}
+			p
+			{display: flex;
+			  color:#9c9c9c;
+			  font-size:12px;
+			  line-height:17px;
+			  margin:0px;
+			  img
+			  {
+			    height: 13px;
+				min-width: 10px;
+				transform: translateY(3px);
+				margin-right: 6px;
+				
+			  }
+			}
+			[btnbottom]
+			{margin-top: 15px;
+			 display:flex;
+			 ion-buttons
+			 {
+			 width:35px;
+			 height:35px;
+			 border-radius:50%;
+			 font-size:18px;
+			 justify-content:center;
+			 color:var(--ion-color-white);
+			 margin-right:10px;
+			 &[btnphone]
+			 {
+			   background:#067f0f;
+			 }
+			 &[btnchat]
+			 {
+			   background:var(--ion-color-primary);
+			 }
+			 &[btnnotification]
+			 {
+			   background:var(--ion-color-secondary);
+			 }
+			 }
+			}
+		  }
+		
+		}
+}
+}

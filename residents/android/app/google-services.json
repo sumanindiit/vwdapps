@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "784689933820",
+    "project_id": "vwd-resident",
+    "storage_bucket": "vwd-resident.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:784689933820:android:223eed263ad992eaa59679",
+        "android_client_info": {
+          "package_name": "com.vwdresidents.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "784689933820-4vrgcpg6amj1elcomvthqpr8ro36gnfc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAA-yXneIKEe1k3TrgSVrrvcZ4zeld7Nng"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "784689933820-4vrgcpg6amj1elcomvthqpr8ro36gnfc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

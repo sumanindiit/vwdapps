@@ -1,0 +1,71 @@
+<ion-header mode="md" [class.show-background]="showToolbar">
+  <ion-toolbar color="primary">
+
+    
+    <ion-back-button slot="start" (click)="dismissModal();" defaultHref="/profile" text="" icon="chevron-back-outline">
+    </ion-back-button>
+    <ion-title class="ion-text-center">Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [scrollEvents]="true" (ionScroll)="onScroll($event)">
+  <div profileimg></div>
+  <div profileinfo>
+    <div userinfo>
+      <ion-avatar>
+        <span>{{ userData?.name.charAt(0) }}</span>
+      </ion-avatar>
+      <h2>{{ userData?.name }}</h2>
+    </div>
+    <ion-segment mode="md" (ionChange)="segmentChanged($event)" value="basicinfo">
+      <ion-segment-button value="basicinfo">
+        <ion-label>Community change request </ion-label>
+      </ion-segment-button>
+    </ion-segment>
+    <ion-list *ngIf="segment === 'basicinfo'">
+      <form [formGroup]="updateChangeCommunityForm" (ngSubmit)="onSubmit()" novalidate>
+        <div form-group>
+
+          <div form-group>
+            <ion-item lines="none">
+              <ion-label>
+                <img src="assets/img/icon6.png" />
+              </ion-label>
+              <ion-select formControlName="community" [interfaceOptions]="customAlertOptions" interface="action-sheet"
+                placeholder="Select Community" >
+                <ion-select-option *ngFor="let val of allCommunities" value="{{val.id}}">{{val.title}}
+                </ion-select-option>
+              </ion-select>
+            </ion-item>
+            <ion-item class='form-text error' *ngIf="submitAttempt && errorCtr.community.errors?.required">
+              <ion-label no-margin stacked>Please select community.</ion-label>
+            </ion-item>
+          </div>
+
+          <ion-item lines="none">
+            <ion-label>
+              <img src="assets/img/icon3.png" />
+            </ion-label>
+            <ion-textarea placeholder="Enter Description here.." formControlName="description" ></ion-textarea>
+          </ion-item>
+          <ion-item class="form-text error" *ngIf="submitAttempt && errorCtr.description.errors?.required">
+            <ion-label no-margin stacked>Description is required.</ion-label>
+          </ion-item>
+          <ion-item class="form-text error" *ngIf="submitAttempt && errorCtr.description.errors?.minlength">
+            <ion-label no-margin stacked>Min 3 chars long.</ion-label>
+          </ion-item>
+          <ion-item class="form-text error" *ngIf="submitAttempt && errorCtr.description.errors?.pattern">
+            <ion-label no-margin stacked>Only alphabets allowed.</ion-label>
+          </ion-item>
+        </div>
+
+        <ion-button btn-submit  [disabled]="isDisabled" type="submit" expand="full" color="primary">
+          <span>Submit</span>
+        </ion-button>
+      </form>
+
+    </ion-list>
+
+  </div>
+</ion-content>

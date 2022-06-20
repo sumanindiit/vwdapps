@@ -1,0 +1,140 @@
+<ion-header mode="md"> 
+  	<ion-toolbar class="primary">
+		<ion-buttons slot="start">
+			<ion-toggle (ionChange)="updateOnlineStatus($event)" [checked]="isOnline" ></ion-toggle>
+		</ion-buttons>
+		<ion-title class="ion-text-center">Residents</ion-title>
+		<ion-buttons (click)="toggleClass()" slot="end">
+			<ion-icon name="search-outline"></ion-icon>
+		</ion-buttons>
+  	</ion-toolbar>
+	<div  *ngIf="hideMe" search>
+		<ion-searchbar [(ngModel)]="searchQuery" (search)="filterResidents($event)" autocorrect="off" showCancelButton="focus" mode="md" placeholder="Search Complaints..." ></ion-searchbar>
+  	</div>
+	<div *ngIf="searching" class="spinner-container">
+    	<ion-spinner></ion-spinner>
+  	</div>
+</ion-header>
+<ion-content>
+<div residents class="ion-padding">
+	<ng-container *ngIf="residentData">
+
+		<ion-item class="ion-no-padding" lines="none" *ngFor ="let data of residentData">
+			<ion-label>
+				<h2>{{ data?.name }}</h2>
+				<p><img src="assets/img/location.png"/> {{ data?.apartmentNo }} {{ data?.buildingNo }} {{ data?.communityTitle }}</p>
+				<div btnbottom>
+					<ion-buttons btnphone  (click)="openDialer(data?.phoneNo);"  >
+					<ion-icon  name="call-outline"></ion-icon>
+					</ion-buttons>
+					<ion-buttons btnchat routerLink="/chat/{{ data?.residentID }}" >
+						<ion-icon name="chatbubble-outline"></ion-icon>
+					</ion-buttons>
+					<ion-buttons btnnotification >
+						<ion-icon name="notifications-outline" (click)="NotifyUser(data?.residentID);"   ></ion-icon>
+					</ion-buttons>
+				</div>
+			</ion-label>
+		</ion-item>
+		<ion-infinite-scroll *ngIf="isMoreRecords" threshold="100px" (ionInfinite)="getAllResidents($event,'1')">
+            <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data..."></ion-infinite-scroll-content>
+    	</ion-infinite-scroll>
+	</ng-container>
+	<div *ngIf="is_loaded === true" class="alert alert-danger" role="alert" style="padding-top: 70px;color: red;font-size: 17px;text-align: center;font-weight: 600;" >
+		No Residents found!
+	</div>
+
+	<ng-container *ngIf="!residentData">
+		<ion-item class="ion-no-padding" lines="none">
+			<ion-label>
+				<h2><ion-skeleton-text animated style="width: 40%"></ion-skeleton-text></h2>
+				<p><img src="assets/img/location.png"/> <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text></p>
+				<div btnbottom>
+					<ion-buttons >
+						<ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+					</ion-buttons>
+					<ion-buttons >
+						<ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+					</ion-buttons>
+					<ion-buttons >
+						<ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+					</ion-buttons>
+				</div>
+			</ion-label>
+		</ion-item>
+		<ion-item class="ion-no-padding" lines="none">
+			<ion-label>
+				<h2><ion-skeleton-text animated style="width: 40%"></ion-skeleton-text></h2>
+				<p><img src="assets/img/location.png"/> <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text></p>
+				<div btnbottom>
+					<ion-buttons >
+						<ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+					</ion-buttons>
+					<ion-buttons >
+						<ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+					</ion-buttons>
+					<ion-buttons >
+						<ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+					</ion-buttons>
+				</div>
+			</ion-label>
+		</ion-item>
+		<ion-item class="ion-no-padding" lines="none">
+			<ion-label>
+				<h2><ion-skeleton-text animated style="width: 40%"></ion-skeleton-text></h2>
+				<p><img src="assets/img/location.png"/> <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text></p>
+				<div btnbottom>
+					<ion-buttons >
+						<ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+					</ion-buttons>
+					<ion-buttons >
+						<ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+					</ion-buttons>
+					<ion-buttons >
+						<ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+					</ion-buttons>
+				</div>
+			</ion-label>
+		</ion-item>
+		<ion-item class="ion-no-padding" lines="none">
+			<ion-label>
+				<h2><ion-skeleton-text animated style="width: 40%"></ion-skeleton-text></h2>
+				<p><img src="assets/img/location.png"/> <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text></p>
+				<div btnbottom>
+					<ion-buttons >
+						<ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+					</ion-buttons>
+					<ion-buttons >
+						<ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+					</ion-buttons>
+					<ion-buttons >
+						<ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+					</ion-buttons>
+				</div>
+			</ion-label>
+		</ion-item>
+		<ion-item class="ion-no-padding" lines="none">
+			<ion-label>
+				<h2><ion-skeleton-text animated style="width: 40%"></ion-skeleton-text></h2>
+				<p><img src="assets/img/location.png"/> <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text></p>
+				<div btnbottom>
+					<ion-buttons >
+						<ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+					</ion-buttons>
+					<ion-buttons >
+						<ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+					</ion-buttons>
+					<ion-buttons >
+						<ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+					</ion-buttons>
+				</div>
+			</ion-label>
+		</ion-item>
+	</ng-container>
+
+
+
+	
+	
+</div>
+</ion-content>

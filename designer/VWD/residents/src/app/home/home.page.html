@@ -1,0 +1,32 @@
+<ion-header mode="md"> 
+  <ion-toolbar class="primary">
+    <ion-title class="ion-text-center">Home</ion-title>
+	<ion-buttons slot="end" routerLink="/tabs/chat">
+	  <ion-icon name="chatbubbles-outline"></ion-icon>
+	</ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+<div homemap>
+<img src="assets/img/map.jpg"/>
+</div>
+<div notify>
+<p>Select the reason for VMD valet from the options below and then just notify  them by pressing 
+the button</p>
+ <div form-group>
+			<ion-item lines="none">
+			<ion-label>
+			<img src="assets/img/icon8.png"/>
+			</ion-label>
+			<ion-select value="{{MyreasonValue}}" [interfaceOptions]="customAlertOptions" interface="alert"  placeholder="Select Reason">
+			  <ion-select-option value="reason1">My Trash Bin Is Now Outside</ion-select-option>
+			  <ion-select-option value="reason2">VWD Valet Is  Still Onsite </ion-select-option>
+			  <ion-select-option value="reason3">Not Grab The Valet </ion-select-option>
+			</ion-select>
+			</ion-item>
+		</div>
+<ion-button btn-notify   expand="full" color="primary">
+		<span>Notify</span>
+</ion-button>
+</div>
+</ion-content>

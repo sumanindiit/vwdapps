@@ -1,0 +1,143 @@
+ion-header
+{ 
+  &:after
+  {
+  display:none;
+  }
+  ion-toolbar
+  {--border-width:0px;
+  --background:var(--ion-color-primarygradient)!important;
+  --ion-color-base:var(--ion-color-primarygradient)!important;
+  ion-title
+  { font-size: 18px;
+    color: var(--ion-color-white);
+	font-family:var(--ion-headfamily);
+  }
+  ion-back-button
+  {
+    --icon-font-size: 20px;
+    color: var(--ion-color-white);
+  }
+  }
+}
+ion-content
+{
+[addcomplaint]
+{
+  [heading]
+  {margin-bottom: 20px;
+    text-align:center;
+	h2
+	{
+	 font-size:18px;
+	 color:var(--ion-color-black);
+	 font-weight:700;
+	 margin:10px 0px 7px;
+	}
+	p
+	{
+	  font-size:14px;
+	  line-height:21px;
+	  color:#8d8d8d;
+	  margin: 0 auto; 
+	  max-width: 270px;
+	}
+  } 
+  [form-group]
+		{    
+			margin-bottom: 20px;
+			&[mb-0]
+			{
+			 margin-bottom: 0px;
+			}
+			[btn-submit]
+		   {
+			   --box-shadow: none;
+				min-height: 54px;
+				color: var(--ion-color-white);
+				font-size: 14px;
+				font-weight: 600;
+				transform: skew(18deg);
+				width: calc(100% - 20px);
+				margin: 0 auto;
+				span
+				{
+				 transform: skew(-18deg);
+				}
+			}
+		ion-item
+		    {
+				--padding-start: 18px;
+				--min-height: 55px;
+				--background: var(--ion-color-grey);
+				ion-label
+				{
+				 align-items: center;
+                 display: flex;
+				 &[labeltextarea]
+				 {
+				 transform:translateY(5px);
+				 }
+				img
+				{
+					height: 20px;
+					width: 20px;
+					min-width: 20px;
+					object-fit: contain;
+				}
+				}
+				ion-input , ion-textarea
+				{
+				    font-size: 14px;
+					color: #43444f;
+					font-weight: 600;
+					 --placeholder-font-weight: 500;
+					 --placeholder-opacity: 1;
+				}
+			}	
+		}
+[uploadimage]
+	{
+	p
+	{
+		color: var(--ion-color-black);
+		font-size: 14px;
+		font-weight: 500;
+		max-width: 230px;
+		margin: 20px auto;
+		text-align: center;
+		line-height: 1.5;
+	}
+	[fileupload]
+	{
+	 label
+	 {
+		background: var(--ion-color-grey);
+		display: block;
+		text-align: center;
+		padding:12px;
+		[uploadinner]
+		{
+		padding:20px 15px;
+		border:2px dashed #a7a7a7;
+		img
+		{
+		height:30px;
+		}
+		h3
+		{
+		 font-size:14px;
+		 font-weight:500;
+		 color:var(--ion-color-black);
+		 margin:10px 0px 0px;
+		}
+		}
+	 }
+	}
+	}
+}
+}
+.error{
+	color:red;
+	font-size:13px;
+}

@@ -1,0 +1,89 @@
+<ion-header mode="md"  [class.show-background]="showToolbar">
+  <ion-toolbar color="primary">
+  <ion-back-button slot="start" defaultHref="/tabs/settings"  text="" icon="chevron-back-outline">
+  </ion-back-button>
+    <ion-title class="ion-text-center">Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content [scrollEvents]="true" (ionScroll)="onScroll($event)">
+  <div profileimg></div>
+  <div profileinfo>
+       <div userinfo>
+	    <ion-avatar>
+	        <span>A</span>
+       </ion-avatar>
+	   <h2>Andrew James</h2>
+	   </div>
+  	<ion-segment mode="md"   (ionChange)="segmentChanged($event)" value="basicinfo">
+			<ion-segment-button value="basicinfo">
+				<ion-label>Basic Info</ion-label>
+			</ion-segment-button>
+			<ion-segment-button value="changepassword">
+				<ion-label>Change Password</ion-label>
+			</ion-segment-button>
+    </ion-segment>
+  	<ion-list *ngIf="segment === 'basicinfo'">
+	 <div form-group>
+			<ion-item lines="none">
+			<ion-label>
+			<img src="assets/img/icon3.png"/>
+			</ion-label>
+			<ion-input type="text"  placeholder="Name" value="Andrew James"></ion-input>
+			</ion-item>
+		</div>
+		<div form-group>
+			<ion-item lines="none">
+			<ion-label>
+			<img src="assets/img/icon1.png"/>
+			</ion-label>
+			<ion-input type="email"  placeholder="Email Address" value="andrewjames@gmail.com"></ion-input>
+			</ion-item>
+		</div>
+	<div form-group>
+			<ion-item lines="none">
+			<ion-label>
+			<img src="assets/img/icon6.png"/>
+			</ion-label>
+				<ion-select value="{{MycommunityValue}}" [interfaceOptions]="customAlertOptions" interface="alert"  placeholder="Select Community">
+			  <ion-select-option value="community1">Royal Community</ion-select-option>
+			  <ion-select-option value="community2">SBP Community</ion-select-option>
+			  <ion-select-option value="community3">TDI Community</ion-select-option>
+			</ion-select>
+			</ion-item>
+		</div>
+		
+		 <ion-button btn-submit  expand="full" color="primary">
+				<span>Submit</span>
+		</ion-button>
+	</ion-list>
+	<ion-list *ngIf="segment === 'changepassword'">
+	    <div form-group>
+			<ion-item lines="none">
+			<ion-label>
+			<img src="assets/img/icon2.png"/>
+			</ion-label>
+			   <ion-input type="password"  placeholder="Current Password"></ion-input>
+			</ion-item>
+		</div>
+		  <div form-group>
+			<ion-item lines="none">
+			<ion-label>
+			<img src="assets/img/icon2.png"/>
+			</ion-label>
+			   <ion-input type="password"  placeholder="New Password"></ion-input>
+			</ion-item>
+		</div>
+		  <div form-group>
+			<ion-item lines="none">
+			<ion-label>
+			<img src="assets/img/icon2.png"/>
+			</ion-label>
+			   <ion-input type="password"  placeholder="Confirm New Password"></ion-input>
+			</ion-item>
+		</div>
+		 <ion-button btn-submit  expand="full" color="primary">
+				<span>Submit</span>
+		</ion-button>
+	</ion-list>
+  </div>
+</ion-content>

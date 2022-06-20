@@ -1,0 +1,72 @@
+<ion-header mode="md"> 
+  <ion-toolbar class="primary">
+  <ion-back-button slot="start" defaultHref="/tabs/dashboard"  text="" icon="chevron-back-outline">
+	</ion-back-button>
+    <ion-title class="ion-text-center">My Complaints</ion-title>
+	<ion-buttons slot="end">
+	 <ion-icon name="search-outline"></ion-icon>
+	</ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+<div complaintsmain  class="ion-padding">
+<ion-item lines="none">
+<ion-avatar>
+  <img src="assets/img/complaint1.jpg"/>
+</ion-avatar>
+<ion-label>
+ <h2>Waste Not Collected</h2>
+ <p>Sed ut perspiciatis unde omnis iste 
+natus error sit voluptatem .</p>
+</ion-label>
+<ion-buttons routerLink="/complaintdetail" slot="end"><ion-icon name="eye-outline"></ion-icon></ion-buttons>
+</ion-item>
+<ion-item lines="none">
+<ion-avatar>
+  <img src="assets/img/complaint2.jpg"/>
+</ion-avatar>
+<ion-label>
+ <h2>Not Picked Waste Disposal</h2>
+ <p>Ut enim ad minim veniam, quis nost-
+rud exercitation.</p>
+</ion-label>
+<ion-buttons slot="end"><ion-icon name="eye-outline"></ion-icon></ion-buttons>
+</ion-item>
+<ion-item lines="none">
+<ion-avatar>
+  <img src="assets/img/complaint3.jpg"/>
+</ion-avatar>
+<ion-label>
+ <h2>Wastage Not Picked</h2>
+ <p>Nam libero tempore, cum soluta 
+nobis est eligendi optio cumque.</p>
+</ion-label>
+<ion-buttons routerLink="/complaintdetail" slot="end"><ion-icon name="eye-outline"></ion-icon></ion-buttons>
+</ion-item>
+<ion-item lines="none">
+<ion-avatar>
+  <img src="assets/img/complaint4.jpg"/>
+</ion-avatar>
+<ion-label>
+ <h2>Not Picked Disposal</h2>
+ <p>Neque porro quisquam est, qui dolo-
+rem ipsum quia dolor sit amet.</p>
+</ion-label>
+<ion-buttons routerLink="/complaintdetail" slot="end"><ion-icon name="eye-outline"></ion-icon></ion-buttons>
+</ion-item>
+<ion-item lines="none">
+<ion-avatar>
+  <img src="assets/img/complaint1.jpg"/>
+</ion-avatar>
+<ion-label>
+ <h2>Waste Disposal Not Picked</h2>
+ <p>Sed ut perspiciatis unde omnis iste 
+natus error sit voluptatem .</p>
+</ion-label>
+<ion-buttons routerLink="/complaintdetail" slot="end"><ion-icon name="eye-outline"></ion-icon></ion-buttons>
+</ion-item>
+</div>
+ <ion-fab vertical="bottom" horizontal="end" slot="fixed" routerLink="/addcomplaint">
+               <ion-fab-button   size="small"><ion-icon name="add"></ion-icon></ion-fab-button>
+ </ion-fab>
+</ion-content>

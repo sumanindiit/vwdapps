@@ -1,0 +1,168 @@
+<ion-header mode="md">
+   <ion-toolbar class="primary">
+      <ion-title class="ion-text-center">Complaints</ion-title>
+      <ion-buttons slot="end">
+         <ion-icon name="search-outline"></ion-icon>
+      </ion-buttons>
+   </ion-toolbar>
+</ion-header>
+<ion-content>
+   <div complaintsmain  class="ion-padding">
+      <ion-segment mode="md"   (ionChange)="segmentChanged($event)" value="pending">
+         <ion-segment-button value="pending">
+            <ion-label>Pending</ion-label>
+         </ion-segment-button>
+         <ion-segment-button value="completed">
+            <ion-label>Completed</ion-label>
+         </ion-segment-button>
+      </ion-segment>
+      <ion-list *ngIf="segment === 'pending'">
+	  <ion-card class="ion-no-margin">
+	     <ion-item lines="none" class="ion-no-padding">
+	         <ion-avatar avatarbg1>
+			   <span>J</span>
+			 </ion-avatar>
+			 <ion-label>
+			  <h2>John Smith</h2>
+			  <p>12 street apartment building newyork , USA 57789</p>
+			 </ion-label>
+			 <div btnright slot="end">
+			   <ion-buttons btncall><ion-icon name="call-outline"></ion-icon></ion-buttons>			   
+			   <ion-buttons routerLink="/complaintdetail"  btnview><ion-icon name="eye-outline"></ion-icon></ion-buttons>
+			 </div>
+	     </ion-item>
+         <ion-card-content class="ion-no-padding">
+               <h2>Waste Not Collected</h2>
+               <p>Sed ut perspiciatis unde omnis iste 
+                  natus error sit voluptatem .
+               </p>
+            </ion-card-content>
+	 </ion-card>	 
+	 <ion-card class="ion-no-margin">
+          <ion-item lines="none" class="ion-no-padding">
+	         <ion-avatar avatarbg2>
+			   <span>A</span>
+			 </ion-avatar>
+			 <ion-label>
+			  <h2>Andrew Jones</h2>
+			  <p>12 street apartment building newyork , USA 57789</p>
+			 </ion-label>
+			 <div btnright slot="end">
+			   <ion-buttons btncall><ion-icon name="call-outline"></ion-icon></ion-buttons>			   
+			   <ion-buttons routerLink="/complaintdetail" btnview><ion-icon name="eye-outline"></ion-icon></ion-buttons>
+			 </div>
+	     </ion-item>	 
+           <ion-card-content class="ion-no-padding">
+               <h2>Not Picked Waste Disposal</h2>
+               <p>Ut enim ad minim veniam, quis nost-
+                  rud exercitation.
+               </p>
+            </ion-card-content>
+	 </ion-card>	 
+	 <ion-card class="ion-no-margin">	 
+	  <ion-item lines="none" class="ion-no-padding">
+	         <ion-avatar avatarbg1>
+			   <span>J</span>
+			 </ion-avatar>
+			 <ion-label>
+			  <h2>Johnson Charles</h2>
+			  <p>12 street apartment building newyork , USA 57789</p>
+			 </ion-label>
+			 <div btnright slot="end">
+			   <ion-buttons btncall><ion-icon name="call-outline"></ion-icon></ion-buttons>			   
+			   <ion-buttons routerLink="/complaintdetail" btnview><ion-icon name="eye-outline"></ion-icon></ion-buttons>
+			 </div>
+	     </ion-item>
+          <ion-card-content class="ion-no-padding">
+               <h2>Wastage Not Picked</h2>
+               <p>Nam libero tempore, cum soluta 
+                  nobis est eligendi optio cumque.
+               </p>
+           </ion-card-content>
+	 </ion-card>	 
+	 <ion-card class="ion-no-margin">	
+ <ion-item lines="none" class="ion-no-padding">
+	         <ion-avatar avatarbg2>
+			   <span>M</span>
+			 </ion-avatar>
+			 <ion-label>
+			  <h2>Maria James</h2>
+			  <p>12 street apartment building newyork , USA 57789</p>
+			 </ion-label>
+			 <div btnright slot="end">
+			   <ion-buttons btncall><ion-icon name="call-outline"></ion-icon></ion-buttons>			   
+			   <ion-buttons routerLink="/complaintdetail" btnview><ion-icon name="eye-outline"></ion-icon></ion-buttons>
+			 </div>
+	     </ion-item>	 
+          <ion-card-content class="ion-no-padding">
+               <h2>Not Picked Disposal</h2>
+               <p>Neque porro quisquam est, qui dolo-
+                  rem ipsum quia dolor sit amet.
+               </p>
+            </ion-card-content>
+     </ion-card>
+     <ion-card class="ion-no-margin">	
+ <ion-item lines="none" class="ion-no-padding">
+	         <ion-avatar avatarbg1>
+			   <span>A</span>
+			 </ion-avatar>
+			 <ion-label>
+			  <h2>Adam James</h2>
+			  <p>12 street apartment building newyork , USA 57789</p>
+			 </ion-label>
+			 <div btnright slot="end">
+			   <ion-buttons btncall><ion-icon name="call-outline"></ion-icon></ion-buttons>			   
+			   <ion-buttons routerLink="/complaintdetail" btnview><ion-icon name="eye-outline"></ion-icon></ion-buttons>
+			 </div>
+	     </ion-item>	 
+         <ion-card-content class="ion-no-padding">
+               <h2>Waste Disposal Not Picked</h2>
+               <p>Sed ut perspiciatis unde omnis iste 
+                  natus error sit voluptatem .
+               </p>
+            </ion-card-content>
+	   </ion-card>	 
+      </ion-list>
+    <ion-list *ngIf="segment === 'completed'">
+	   
+	     <ion-card class="ion-no-margin">
+	     <ion-item lines="none" class="ion-no-padding">
+	         <ion-avatar avatarbg1>
+			   <span>J</span>
+			 </ion-avatar>
+			 <ion-label>
+			  <h2>John Smith</h2>
+			  <p>12 street apartment building newyork , USA 57789</p>
+			 </ion-label>		   
+			   <ion-buttons routerLink="/complaintdetail"  slot="end" btnview><ion-icon name="eye-outline"></ion-icon></ion-buttons>
+	     </ion-item>
+         <ion-card-content class="ion-no-padding">
+               <h2>Waste Not Collected</h2>
+               <p>Sed ut perspiciatis unde omnis iste 
+                  natus error sit voluptatem .
+               </p>
+            </ion-card-content>
+	 </ion-card>	 
+	 <ion-card class="ion-no-margin">
+          <ion-item lines="none" class="ion-no-padding">
+	         <ion-avatar avatarbg2>
+			   <span>A</span>
+			 </ion-avatar>
+			 <ion-label>
+			  <h2>Andrew Jones</h2>
+			  <p>12 street apartment building newyork , USA 57789</p>
+			 </ion-label>		   
+			   <ion-buttons slot="end" routerLink="/complaintdetail" btnview><ion-icon name="eye-outline"></ion-icon></ion-buttons>
+	     </ion-item>	 
+           <ion-card-content class="ion-no-padding">
+               <h2>Not Picked Waste Disposal</h2>
+               <p>Ut enim ad minim veniam, quis nost-
+                  rud exercitation.
+               </p>
+            </ion-card-content>
+	 </ion-card>
+	   
+	   </ion-list>
+
+  </div>
+</ion-content>

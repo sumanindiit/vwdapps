@@ -1,0 +1,36 @@
+<ion-header mode="md">
+  <ion-toolbar color="primary">
+  <ion-back-button slot="start" defaultHref="/tabs/settings"  text="" icon="chevron-back-outline">
+  </ion-back-button>
+    <ion-title class="ion-text-center">{{ pageData?.title}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <div *ngIf="pageData">
+    <div privacypolicy [innerHTML]="pageData?.content" ></div>
+  </div>
+
+  <!-- Skeleton screen -->
+  <div *ngIf="!pageData">
+    <div privacypolicy >
+      <h2 heading><ion-skeleton-text animated  style="width: 40%" ></ion-skeleton-text></h2>
+      <p><ion-skeleton-text animated  style="width: 80%" ></ion-skeleton-text></p>
+      <p><ion-skeleton-text animated  style="width: 80%" ></ion-skeleton-text></p>
+      <p><ion-skeleton-text animated  style="width: 80%" ></ion-skeleton-text></p>
+
+      <h2 heading mt-20><ion-skeleton-text animated  style="width: 40%" ></ion-skeleton-text></h2>
+      
+      <ul>
+          <li><ion-skeleton-text animated  style="width: 80%" ></ion-skeleton-text></li>
+          <li><ion-skeleton-text animated  style="width: 80%" ></ion-skeleton-text></li>
+          <li><ion-skeleton-text animated  style="width: 80%" ></ion-skeleton-text></li>
+      </ul>
+      <h2 heading mt-20><ion-skeleton-text animated  style="width: 40%" ></ion-skeleton-text></h2>
+      <p><ion-skeleton-text animated  style="width: 80%" ></ion-skeleton-text></p>
+      <p><ion-skeleton-text animated  style="width: 80%" ></ion-skeleton-text></p>
+      <p><ion-skeleton-text animated  style="width: 80%" ></ion-skeleton-text></p>
+    </div>
+  </div> 
+	
+
+</ion-content>

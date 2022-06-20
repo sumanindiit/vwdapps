@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "91617223441",
+    "project_id": "vwd-property-manager",
+    "storage_bucket": "vwd-property-manager.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:91617223441:android:af7323611dbe2f6e4c62b0",
+        "android_client_info": {
+          "package_name": "com.propertymanager.vwd"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "91617223441-hvqhbll7b6osikcjiev4ra6fe5qe0j6t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTVvFDzzMp-wqLx-VUNyN1Jh2gJY7giwE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "91617223441-hvqhbll7b6osikcjiev4ra6fe5qe0j6t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

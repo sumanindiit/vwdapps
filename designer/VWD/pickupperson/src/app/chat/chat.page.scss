@@ -1,0 +1,186 @@
+ion-header {
+	&:after {
+		display: none;
+	}
+	ion-toolbar {
+		--border-width: 0px;
+		--background: var(--ion-color-primarygradient)!important;
+		--ion-color-base: var(--ion-color-primarygradient)!important;
+		ion-title {
+			padding-left: 0px;
+			ion-item {
+				--inner-padding-end: 0px;
+				--background: transparent;
+				ion-avatar {
+					width: 46px;
+					height: 46px;
+					border: 1px solid var(--ion-color-white);
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					span {
+						width: 40px;
+						height: 40px;
+						background: var(--ion-color-white);
+						border-radius: 50%;
+						font-size: 14px;
+						font-weight: 500;
+						color: var(--ion-color-black);
+						display: flex;
+						align-items: center;
+						justify-content: center;
+					}
+				}
+				ion-label {
+					margin-left: 15px;
+					h2 {
+						font-size: 13px;
+						color: var(--ion-color-white);
+						font-weight: 600;
+						margin: 0;
+					}
+					p {
+						font-size: 12px;
+						color: var(--ion-color-white);
+						font-weight: 400;
+						margin: 0;
+					}
+				}
+			}
+		}
+		ion-back-button {
+			--icon-font-size: 20px;
+			color: var(--ion-color-white);
+		}
+	}
+}
+
+ion-content {
+	--background: url(../../assets/img/shape1.png) top right/contain no-repeat;
+	background: #f2f2f2;
+	[receiver] {
+		flex-direction: row;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 20px;
+		[chatleft] {
+			ion-icon {
+				color: var(--ion-color-primary);
+			}
+			p {
+				font-weight: 500;
+				font-size: 11px;
+				margin: 0px;
+				color: #333333;
+			}
+		}
+		[chatright] {
+			padding: 15px 20px;
+			max-width: 270px;
+			border-radius: 0px;
+			background: var(--ion-color-secondarygradient);
+			position: relative;
+			&:after {
+				content: "";
+				border-width: 10px 10px 0px 0px;
+				border-style: solid;
+				border-color: #630606 transparent #630606 transparent;
+				position: absolute;
+				top: 0px;
+				right: -10px;
+			}
+			p {
+				font-weight: 500;
+				margin: 0px;
+				font-size: 13px;
+				color: var(--ion-color-white);
+				line-height: 21px;
+			}
+		}
+	}
+	[sender] {
+		flex-direction: row;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 20px;
+		[chatright] {
+			p {
+				font-weight: 500;
+				font-size: 11px;
+				margin: 0px;
+				color: #333333;
+			}
+		}
+		[chatleft] {
+			padding: 15px 20px;
+			border-radius: 0px;
+			background: var(--ion-color-white);
+			max-width: 270px;
+			position: relative;
+			&:after {
+				content: "";
+				border-width: 10px 10px 0px 0px;
+				border-style: solid;
+				border-color: var(--ion-color-white) transparent var(--ion-color-white) transparent;
+				position: absolute;
+				top: 0px;
+				left: -10px;
+				transform: rotate(90deg);
+			}
+			p {
+				font-weight: 500;
+				margin: 0px;
+				font-size: 13px;
+				line-height: 21px;
+				color: #333333;
+			}
+		}
+	}
+}
+
+ion-footer {
+	background: var(--ion-color-white);
+	&:before {
+		display: none;
+	}
+	[commentbox] {
+		padding: 15px;
+		display: flex;
+		flex-direction: row;
+		ion-item {
+			width: 100%;
+			border: 2px solid rgba(0, 0, 0, 0.16);
+			--min-height: 45px;
+			margin-right: -2px;
+			--background: transparent;
+			font-size: 11px;
+			--inner-padding-end: 10px;
+			img {
+				margin: 0px 0px 0px 10px;
+			}
+			ion-input {
+				--placeholder-opacity: 1;
+				color: #333;
+				font-size: 13px;
+				font-weight: 500;
+			}
+			[attachment] {
+				transform: rotate(-135deg);
+			}
+		}
+		ion-buttons {
+			font-size: 25px;
+			&[iconright] {
+				margin-left: 0px;
+				background: var(--ion-color-primarygradient);
+				width: 49px;
+				height: 49px;
+				color: var(--ion-color-white);
+				min-width: 49px;
+				justify-content: center;
+			}
+		}
+	}
+}

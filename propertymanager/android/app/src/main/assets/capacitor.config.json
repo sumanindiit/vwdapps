@@ -1,0 +1,6 @@
+{
+	"appId": "com.propertymanager.vwd",
+	"appName": "VWD property manager",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

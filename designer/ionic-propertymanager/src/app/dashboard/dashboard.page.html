@@ -1,0 +1,71 @@
+<ion-header mode="ios">
+	<ion-toolbar class="primary">
+		<ion-title class="ion-text-center">Dashboard</ion-title>
+		<ion-buttons slot="end">
+		<ion-select slot="end" value="{{SortByValue}}" [interfaceOptions]="customAlertOptions" interface="alert">
+			  <ion-select-option value="sort1">Week</ion-select-option>
+			  <ion-select-option value="sort2">Month</ion-select-option>
+			  <ion-select-option value="sort3">Year</ion-select-option>
+			</ion-select>
+		</ion-buttons>
+	</ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+<ion-row dashboard>
+<ion-col size="6">
+<ion-item lines="none" routerLink="/tabs/home">
+<ion-avatar>
+<img src="assets/img/complaints.png"/>
+</ion-avatar>
+  <ion-label>
+  <h2>Complaints</h2>
+  <p>150</p>
+  </ion-label>
+</ion-item>
+</ion-col>
+<ion-col size="6">
+<ion-item lines="none" routerLink="/tabs/complaints">
+<ion-avatar>
+<img src="assets/img/requests.png"/>
+</ion-avatar>
+  <ion-label>
+  <h2>Requests</h2>
+  <p>120</p>
+  </ion-label>
+</ion-item>
+</ion-col>
+</ion-row>
+<div complaints>
+<div heading><h2>Complaints</h2>
+
+</div>
+<div style="display: block;">
+  <canvas baseChart 
+    [datasets]="barChartData"
+    [labels]="barChartLabels"
+    [options]="barChartOptions"
+    [plugins]="barChartPlugins"
+	  [colors]="barChartColors"
+    [legend]="barChartLegend"
+    [chartType]="barChartType">
+  </canvas>
+</div>
+</div>
+<div complaints>
+<div heading><h2>Requests</h2>
+
+</div>
+<div style="display: block;">
+  <canvas baseChart 
+    [data]="pieChartData" 
+    [labels]="pieChartLabels" 
+    [chartType]="pieChartType"
+      [colors]="pieChartColors"
+    [options]="pieChartOptions"
+    [plugins]="pieChartPlugins"
+    [legend]="pieChartLegend">
+  </canvas>
+</div>
+
+</div>
+</ion-content>

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "601290941770",
+    "project_id": "vwd-pickup",
+    "storage_bucket": "vwd-pickup.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:601290941770:android:3fcd1fa4c81bc45d590db3",
+        "android_client_info": {
+          "package_name": "com.vwdpickup.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "601290941770-8tfjm55rq4qes3uq7ceg1emjiau48lut.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBH-1DJwc1qRgptzGyoru8ctKRsmdJdxSc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "601290941770-8tfjm55rq4qes3uq7ceg1emjiau48lut.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,120 @@
+ion-content
+{
+--background:var(--ion-color-white);
+[loginmain]
+{
+  [loginimg]
+  {
+    background:url(../../assets/img/bg1.jpg);
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-position:center;
+	height:220px;
+	width:100%;
+	-webkit-clip-path: polygon(0% 0%, 100% 0, 100% 77%, 0 100%);
+	clip-path: polygon(0% 0%, 100% 0, 100% 77%, 0 100%);
+	display: flex;
+    align-items: center;
+    justify-content: center;
+	position:relative;
+	&:after
+	{
+	  content:'';
+	  position:absolute;
+	  top:0px;
+	  left:0px;
+	  right:0px;
+	  bottom:0px;
+	  background:rgba(0,0,0,0.60);
+	}
+	[logo]
+	{   position: relative;
+        z-index: 2;
+	    img
+		{
+		  height:90px;
+		}
+	}
+  }
+  [loginform]
+  {
+    [heading]
+	{text-align: center;
+	 margin: 10px  0px 25px;
+	  h2
+	  {
+	    font-size:20px;
+		font-family:var(--ion-headfamily);
+		margin:0px 0px 10px;
+	  }
+	  p
+	  {font-weight: 500;
+	   color:#9d9d9d;
+	   font-size:14px;
+	   margin:0px;
+	  }
+	}
+	[btn-login]
+		{  
+			font-weight: 500;
+			p
+			{   font-size:13px;
+			    color: var(--ion-color-black);
+				margin: 0px;
+				font-weight: 500;
+				a
+				{
+				    color:var(--ion-color-secondary);
+				    font-weight: 700;
+				    text-decoration:underline;
+				}
+			}
+		}
+	[form-group]
+		{    
+			margin-bottom: 20px;
+			[btn-signup]
+		   {
+			   --box-shadow: none;
+				min-height: 54px;
+				color: var(--ion-color-white);
+				font-size: 14px;
+				font-weight: 600;
+				transform: skew(18deg);
+				width: calc(100% - 20px);
+				margin: 0 auto;
+				span
+				{
+				 transform: skew(-18deg);
+				}
+			}
+		ion-item
+		    {
+				--padding-start: 18px;
+				--min-height: 55px;
+				--background: var(--ion-color-grey);
+				ion-label
+				{
+				 align-items: center;
+                 display: flex;
+				img
+				{
+					height: 20px;
+					width: 20px;
+					min-width: 20px;
+					object-fit: contain;
+				}
+				}
+				ion-input
+				{
+				    font-size: 14px;
+					color: #43444f;
+					font-weight: 600;
+					 --placeholder-font-weight: 500;
+					 --placeholder-opacity: 1;
+				}
+			}	
+		}
+  }
+}
+}

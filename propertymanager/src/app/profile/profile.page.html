@@ -1,0 +1,150 @@
+<ion-header mode="md"  [class.show-background]="showToolbar">
+  <ion-toolbar color="primary">
+    <ion-title class="ion-text-center">Profile</ion-title>
+	<ion-buttons slot="end"  (click)="logout()" >
+	 <ion-icon name="log-out-outline"></ion-icon>
+	</ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content [scrollEvents]="true" (ionScroll)="onScroll($event)">
+  	<div profileimg></div>
+	<div profileinfo>
+		<div userinfo>
+			<ion-avatar>
+				<span>{{ userData?.name.charAt(0) }}</span>
+			</ion-avatar>
+			<h2>{{ userData?.name }}</h2>
+		</div>
+		<ion-segment mode="md"   (ionChange)="segmentChanged($event)" value="basicinfo">
+			<ion-segment-button value="basicinfo">
+				<ion-label>Basic Info</ion-label>
+			</ion-segment-button>
+			<ion-segment-button value="changepassword">
+				<ion-label>Change Password</ion-label>
+			</ion-segment-button>
+		</ion-segment>
+		<ion-list *ngIf="segment === 'basicinfo'">
+			<form [formGroup]="updateProfileForm" (ngSubmit)="onSubmit()" novalidate>
+			<div form-group>
+				<ion-item lines="none">
+					<ion-label>
+					<img src="assets/img/icon3.png"/>
+					</ion-label>
+					<ion-input type="text" formControlName="name"  placeholder="Name" ></ion-input>
+				</ion-item>
+				<ion-item class="form-text error" *ngIf="submitAttempt && errorCtr.name.errors?.required">
+					<ion-label no-margin stacked>Name is required.</ion-label>
+				</ion-item>
+				<ion-item class="form-text error" *ngIf="submitAttempt && errorCtr.name.errors?.minlength">
+					<ion-label no-margin stacked>Min 3 chars long.</ion-label>
+				</ion-item>
+				<ion-item class="form-text error" *ngIf="submitAttempt && errorCtr.name.errors?.pattern">
+					<ion-label no-margin stacked>Only alphabets allowed.</ion-label>
+				</ion-item>
+			</div>
+			<div form-group>
+				<ion-item lines="none">
+					<ion-label>
+					<img src="assets/img/icon1.png"/>
+					</ion-label>
+					<ion-input type="email"   formControlName="email"  placeholder="Email Address" ></ion-input>
+				</ion-item>
+				<ion-item class="form-text error" *ngIf="submitAttempt && errorCtr.email.errors?.required">
+					<ion-label no-margin stacked>Email is required.</ion-label>
+				</ion-item>
+				<ion-item class="form-text error" *ngIf="submitAttempt && errorCtr.email.errors?.pattern">
+					<ion-label no-margin stacked>Enter valid email.</ion-label>
+				</ion-item>
+			</div>
+			<div form-group>
+				<ion-item lines="none">
+					<ion-label>
+					<img src="assets/img/icon4.png"/>
+					</ion-label>
+					<ion-input type="text" maxlength="10" formControlName="phoneNo"   placeholder="Phone Number" ></ion-input>
+				</ion-item>
+				<ion-item class="form-text error" *ngIf="submitAttempt && errorCtr.phoneNo.errors?.required">
+					<ion-label no-margin stacked>Phone number is required.</ion-label>
+				</ion-item>
+				<ion-item class="form-text error" *ngIf="submitAttempt && errorCtr.phoneNo.errors?.pattern">
+					<ion-label no-margin stacked>Number values allowed.</ion-label>
+				</ion-item>
+			</div>
+			<div form-group>
+				<ion-item lines="none">
+					<ion-label>
+						<img src="assets/img/icon6.png"/>
+					</ion-label> 
+					<ion-select formControlName="community" 
+					 [interfaceOptions]="customAlertOptions" interface="action-sheet"  
+					 placeholder="Select Community"  disabled="true">
+						<ion-select-option *ngFor="let val of allCommunities"   value="{{val.id}}" >{{val.title}}</ion-select-option>
+					</ion-select>
+				</ion-item>
+				<ion-item class='form-text error'*ngIf="submitAttempt && errorCtr.community.errors?.required">
+					<ion-label no-margin stacked>Please select community.</ion-label>
+				</ion-item>
+			</div>
+			
+			<ion-button btn-submit type="submit"   expand="full" color="primary">
+				<span>Submit</span>
+			</ion-button>
+			</form>
+			<ion-item>
+				<a (click)="presentModal()">Want to change community?</a>
+			</ion-item>
+		</ion-list>
+
+		<ion-list *ngIf="segment === 'changepassword'">
+			<form [formGroup]="updatePasswordForm" (ngSubmit)="onPasswordSubmit()" novalidate>
+				<div form-group>
+					<ion-item lines="none">
+						<ion-label>
+						<img src="assets/img/icon2.png"/>
+						</ion-label>
+						<ion-input type="password" formControlName="currentPassword"  placeholder="Current Password"></ion-input>
+					</ion-item>
+					<ion-item class="form-text error" *ngIf="submitPasswordAttempt && errorPasswordCtr.currentPassword.errors?.required">
+						<ion-label no-margin stacked>Current Password is required.</ion-label>
+					</ion-item>
+				</div>
+				<div form-group>
+					<ion-item lines="none">
+						<ion-label>
+						<img src="assets/img/icon2.png"/>
+						</ion-label>
+						<ion-input  [type]="passwordType"   formControlName="password" placeholder="Password"></ion-input>
+						<ion-icon item-end [name]="passwordIcon" class="passwordIcon" (click)='hideShowPassword()'></ion-icon>
+					</ion-item>	
+					<ion-item class='form-text error'*ngIf="submitPasswordAttempt && errorPasswordCtr.password.errors?.required">
+						<ion-label no-margin stacked>Password is required.</ion-label>
+					</ion-item>
+					<ion-item class='form-text error' *ngIf="submitPasswordAttempt && errorPasswordCtr.password.errors?.pattern" >
+						<ion-label no-margin stacked wrap-text>Password must be between 6 and 12 characters with at least one capital letter, one small letter, and one digit.</ion-label>
+					</ion-item>
+					
+				</div>
+				<div form-group>
+					<ion-item lines="none">
+					<ion-label>
+					<img src="assets/img/icon2.png"/>
+					</ion-label>
+					<ion-input [type]="confirmPasswordType" formControlName="confirmPassword" placeholder="Confirm Password"></ion-input>
+					<ion-icon item-end [name]="confirmPasswordIcon" class="passwordIcon" (click)='hideShowConfirmPassword()'></ion-icon>	
+				</ion-item>
+
+					<ion-item class='form-text error'*ngIf="submitPasswordAttempt && errorPasswordCtr.confirmPassword.errors?.required">
+						<ion-label no-margin stacked>Confirm Password is required.</ion-label>
+					</ion-item>
+					<ion-item class='form-text error' *ngIf="submitPasswordAttempt && !errorPasswordCtr.confirmPassword.errors?.required && updatePasswordForm.hasError('mismatchedPasswords') ">
+						<ion-label no-margin stacked>Passwords do not match</ion-label>
+					</ion-item>
+				</div>
+				<ion-button btn-submit type="submit"  expand="full" color="primary">
+						<span>Submit</span>
+				</ion-button>
+			</form>
+		</ion-list>
+	</div>
+</ion-content>
+

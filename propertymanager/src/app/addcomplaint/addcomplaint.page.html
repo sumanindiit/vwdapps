@@ -1,0 +1,67 @@
+<ion-header mode="md"> 
+  	<ion-toolbar class="primary">
+		  
+  		<ion-back-button slot="start" defaultHref="/tabs/complaints"  text="" icon="chevron-back-outline">
+  		</ion-back-button>
+    	<ion-title class="ion-text-center">Add Complaint</ion-title>
+  	</ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+ 	<div addcomplaint>
+     	<div heading>
+	   		<h2>Any Complaint ?</h2>
+	   		<p>Please fill the detail  below if you have any complaint</p>
+		</div>
+		<form [formGroup]="complaintForm" (ngSubmit)="onSubmit()" novalidate>
+			<div form-group>
+				<ion-item lines="none">
+					<ion-label>
+						<img src="assets/img/icon9.png"/>
+					</ion-label>
+					<ion-input type="text" formControlName="title"  placeholder="Title"></ion-input>
+				</ion-item>
+				<ion-item class="form-text error" *ngIf="submitAttempt && errorCtr.title.errors?.required">
+					<ion-label no-margin stacked>Title is required.</ion-label>
+				</ion-item>
+				<ion-item class="form-text error" *ngIf="submitAttempt && errorCtr.title.errors?.minlength">
+					<ion-label no-margin stacked>Min 3 chars long.</ion-label>
+				</ion-item>
+				<ion-item class="form-text error" *ngIf="submitAttempt && errorCtr.title.errors?.pattern">
+					<ion-label no-margin stacked>Only alphabets allowed.</ion-label>
+				</ion-item>
+			</div>
+			<div form-group>
+				<ion-item lines="none">
+					<ion-label labeltextarea>
+						<img src="assets/img/icon10.png"/>
+					</ion-label>
+					<ion-textarea rows="4"  formControlName="content"  placeholder="Description"></ion-textarea>
+				</ion-item>
+				<ion-item class="form-text error" *ngIf="submitAttempt && errorCtr.content.errors?.required">
+					<ion-label no-margin stacked>Description is required.</ion-label>
+				</ion-item>
+				<ion-item class="form-text error" *ngIf="submitAttempt && errorCtr.content.errors?.minlength">
+					<ion-label no-margin stacked>Minimum 5 chars long.</ion-label>
+				</ion-item>
+			</div>
+			<div uploadimage>
+				<div fileupload>
+					<label >
+						<div uploadinner (click)="selectImageSource()">
+							<img src="assets/img/icon11.png"/><h3>Take a Picture</h3> 
+						</div>
+					</label>
+					<input type="file"    accept="image/*" id="fileupload"  (change)="uploadFile($event)" name="fileupload" style="display:none"/>
+				</div>
+				<p>Take a picture or choose from your library</p>
+				<img *ngIf="previewImage" [src]="previewImage"/>
+			</div>
+			
+			<div form-group mb-0>
+				<ion-button btn-submit  type="submit" expand="full" color="primary">
+					<span>Submit</span>
+				</ion-button>
+			</div>
+		</form>
+ 	</div>
+</ion-content>

@@ -1,0 +1,207 @@
+<ng-container *ngIf="valletData">
+  <ion-header mode="md">
+
+    <ion-toolbar class="primary">
+      <ion-back-button slot="start" defaultHref="/tabs/home" text="" icon="chevron-back-outline"></ion-back-button>
+      <ion-title class="ion-text-center">
+        <ion-item lines="none" class="ion-no-padding">
+          <ion-avatar><span>{{ valletData?.name.charAt(0) }}</span></ion-avatar>
+          <ion-label>
+            <h2>{{ valletData?.name }}</h2>
+            <p>{{ valletData?.email }}</p>
+          </ion-label>
+        </ion-item>
+      </ion-title>
+    </ion-toolbar>
+
+  </ion-header>
+
+  <ion-content class="ion-padding" #contentArea>
+
+    <div *ngFor="let data of messageData">
+
+      <div sender *ngIf="data.typ === 'sender'">
+        <div chatleft *ngIf="data.typo === '1'">
+          <p><img style="height: 100px;width: 100px;"
+              src="https://dev.indiit.solutions/vwdadmin/public/messages/{{ data.message }}"></p>
+        </div>
+        <div chatleft *ngIf="data.typo === '0'">
+          <p>{{ data.message }}</p>
+        </div>
+        <div chatright>
+          <p>{{ data?.timeago }}</p>
+        </div>
+      </div>
+
+      <div receiver *ngIf="data.typ === 'receiver'">
+        <div chatleft>
+          <ion-icon name="checkmark-done-outline"></ion-icon>
+          <p>{{ data?.timeago }}</p>
+        </div>
+        <div chatright *ngIf="data.typo === '0'">
+          <p>{{ data.message }}</p>
+        </div>
+        <div chatright *ngIf="data.typo === '1'">
+          <p><img style="height: 100px;width: 100px;"
+              src="https://dev.indiit.solutions/vwdadmin/public/messages/{{ data.message }}"></p>
+        </div>
+      </div>
+
+    </div>
+  </ion-content>
+
+  <ion-footer>
+
+    <form [formGroup]="messageForm" (ngSubmit)="onSubmit()" novalidate>
+      <img *ngIf="previewImage" [src]="previewImage" />
+      <div commentbox>
+
+        <ion-item lines="none">
+          <ion-input type="text" formControlName="message" (ionInput)="change($event)" placeholder="Write Message.....">
+          </ion-input>
+          <ion-icon attachment name="attach-outline" (click)="selectImageSource()"></ion-icon>
+
+        </ion-item>
+
+        <ion-button iconright disabled={{disButton}} type="submit">
+          <ion-icon name="paper-plane"></ion-icon>
+        </ion-button>
+
+        <input type="file" accept="image/*" id="fileupload" (change)="uploadFile($event)" name="fileupload"
+          hidden=true />
+      </div>
+    </form>
+
+  </ion-footer>
+</ng-container>
+
+
+<ng-container *ngIf="is_loaded === true">
+  <ion-header mode="md">
+
+    <ion-toolbar class="primary">
+      <ion-back-button slot="start" defaultHref="/tabs/home" text="" icon="chevron-back-outline"></ion-back-button>
+      <ion-title class="ion-text-center">
+        <ion-item lines="none" class="ion-no-padding">
+          <ion-avatar><span></span></ion-avatar>
+          <ion-label>
+            <h2></h2>
+            <p></p>
+          </ion-label>
+        </ion-item>
+      </ion-title>
+    </ion-toolbar>
+
+  </ion-header>
+
+  <ion-content class="ion-padding" #contentArea>
+
+    <div style="color: red;font-size: 17px;text-align: center;font-weight: 600;">
+      No Vallet has been assigned yet.
+    </div>
+  </ion-content>
+
+  <ion-footer>
+  </ion-footer>
+</ng-container>
+
+
+<!-- Skeleton screen -->
+<ng-container *ngIf="!valletData">
+  <ng-container *ngIf="valletId === ''">
+    
+    <ion-content class="ion-padding">
+      <ion-item color="danger">
+            <ion-label>No pickup person is assigned yet.</ion-label>
+          </ion-item>
+    </ion-content>
+
+  </ng-container>
+  <ng-container *ngIf="valletId != ''">
+    <ion-header mode="md">
+      <ion-toolbar class="primary">
+        <ion-back-button slot="start" defaultHref="/tabs/home" text="" icon="chevron-back-outline"></ion-back-button>
+        <ion-title class="ion-text-center">
+          <ion-item lines="none" class="ion-no-padding">
+            <ion-avatar><span>
+                <ion-skeleton-text animated style="width: 20%;"></ion-skeleton-text>
+              </span></ion-avatar>
+            <ion-label>
+              <h2>
+                <ion-skeleton-text animated style="width: 40%;--background-rgb: 255,255,255;"></ion-skeleton-text>
+              </h2>
+              <p>
+                <ion-skeleton-text animated style="width: 60%;--background-rgb: 255,255,255;"></ion-skeleton-text>
+              </p>
+            </ion-label>
+          </ion-item>
+        </ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content class="ion-padding">
+      <div receiver>
+        <div chatleft>
+          <ion-icon name="checkmark-done-outline"></ion-icon>
+          <p>
+            <ion-skeleton-text animated style="width: 20%;--background-rgb: 255,255,255;"></ion-skeleton-text>
+          </p>
+        </div>
+        <div chatright style="width: 100%;">
+          <p>
+            <ion-skeleton-text animated style="width: 60%;--background-rgb: 255,255,255;"></ion-skeleton-text>
+          </p>
+        </div>
+      </div>
+      <div sender>
+        <div chatleft style="width: 100%;">
+          <p>
+            <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+          </p>
+        </div>
+        <div chatright>
+          <p>
+            <ion-skeleton-text animated style="width: 20%"></ion-skeleton-text>
+          </p>
+        </div>
+      </div>
+      <div sender>
+        <div chatleft style="width: 100%;">
+          <p>
+            <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+          </p>
+        </div>
+        <div chatright>
+          <p>
+            <ion-skeleton-text animated style="width: 20%"></ion-skeleton-text>
+          </p>
+        </div>
+      </div>
+      <div receiver>
+        <div chatleft>
+          <ion-icon name="checkmark-done-outline"></ion-icon>
+          <p>
+            <ion-skeleton-text animated style="width: 20%;--background-rgb: 255,255,255;"></ion-skeleton-text>
+          </p>
+        </div>
+        <div chatright style="width: 100%;">
+          <p>
+            <ion-skeleton-text animated style="width: 60%;--background-rgb: 255,255,255;"></ion-skeleton-text>
+          </p>
+        </div>
+      </div>
+    </ion-content>
+
+    <ion-footer>
+      <div commentbox>
+        <ion-item lines="none">
+          <ion-input type="text" placeholder="Write Message....."></ion-input>
+          <ion-icon attachment name="attach-outline"></ion-icon>
+        </ion-item>
+        <ion-buttons iconright>
+          <ion-skeleton-text animated style="width: 40%"></ion-skeleton-text>
+        </ion-buttons>
+      </div>
+    </ion-footer>
+  </ng-container>
+</ng-container>

@@ -1,0 +1,70 @@
+<ion-header mode="ios">
+	<ion-toolbar class="primary">
+		<ion-title class="ion-text-center">Dashboard</ion-title>
+		<ion-buttons slot="end">
+			<ion-select #C (ionChange)="UpdateSelctedData(C.value)" slot="end" value="{{SortByValue}}"  [interfaceOptions]="customAlertOptions" interface="alert">
+				<ion-select-option value="week">Week</ion-select-option>
+				<ion-select-option value="month">Month</ion-select-option>
+				<ion-select-option value="year">Year</ion-select-option>
+			</ion-select>
+		</ion-buttons>
+	</ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+	<ion-row dashboard>
+		<ion-col size="6">
+			<ion-item detail="false" lines="none" routerLink="/tabs/home">
+				<ion-avatar>
+					<img src="assets/img/complaints.png"/>
+				</ion-avatar>
+				<ion-label>
+					<h2>My Complaints</h2>
+					<p>{{ myComplaints }}</p>
+				</ion-label>
+			</ion-item>
+		</ion-col>
+		<ion-col size="6">
+			<ion-item detail="false"  lines="none" routerLink="/tabs/complaints">
+				<ion-avatar>
+					<img src="assets/img/requests.png"/>
+				</ion-avatar>
+				<ion-label>
+					<h2>Complaints</h2>
+					<p>{{ otherComplaints }}</p>
+				</ion-label>
+			</ion-item>
+		</ion-col>
+	</ion-row>
+	<div complaints *ngIf="myComplaints > 0 || myComplaints > '0'">
+		<div heading>
+			<h2>My Complaints</h2>
+		</div>
+		<div style="display: block;">
+			<canvas baseChart 
+				[datasets]="barChartData"
+				[labels]="barChartLabels"
+				[options]="barChartOptions"
+				[plugins]="barChartPlugins"
+				[colors]="barChartColors"
+				[legend]="barChartLegend"
+				[chartType]="barChartType">
+			</canvas>
+		</div>
+	</div>
+	<div complaints *ngIf="otherComplaints > 0 || otherComplaints > '0'">
+		<div heading>
+			<h2>Complaints</h2>
+		</div>
+		<div style="display: block;">
+			<canvas baseChart 
+				[data]="pieChartData" 
+				[labels]="pieChartLabels" 
+				[chartType]="pieChartType"
+				[colors]="pieChartColors"
+				[options]="pieChartOptions"
+				[plugins]="pieChartPlugins"
+				[legend]="pieChartLegend">
+			</canvas>
+		</div>
+	</div>
+</ion-content>

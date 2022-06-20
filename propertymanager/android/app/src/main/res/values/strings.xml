@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">VWD property manager</string>
+    <string name="title_activity_main">VWD property manager</string>
+    <string name="package_name">com.propertymanager.vwd</string>
+    <string name="custom_url_scheme">com.propertymanager.vwd</string>
+</resources>
